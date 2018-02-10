@@ -1,43 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
-import './styles/styles.scss';
+import { Provider } from 'react-redux';
+import AppRouter from './routers/AppRouter';
+import configureStore from './store/configureStore';
+import { addExpense } from './actions/expenses';
+import { setTextFilter } from './actions/filters';
+import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
+import './styles/styles.scss';
 ///
 
-const ExpenseDashboardPage = () => (
-    <div>
-        This is from my dashboard component
-    </div>
+    configureStore.dispatch(addExpense(
+    {
+        description:'water bill',
+        note: 'first expensive',
+        amount: 250,
+        createdAt: 25
+    }));
+
+    configureStore.dispatch(addExpense(
+    {
+        description:'gas bill',
+        note:'second expense',
+        amount: 666,
+        createdAt: 30
+    }));
+
+configureStore.dispatch(setTextFilter('GAS'));
+
+// console.log(getVisibleExpenses(configureStore.getState().expenses, configureStore.getState().filters));
+
+
+const jsx = (
+    <Provider store={configureStore}>
+        <AppRouter />
+    </Provider>
 );
 
-const AddExpensePage = () => (
-    <div>
-        This is from my add expense component
-    </div>
-);
-
-const EditExpensePage = () => (
-    <div>
-        This is from my edit expense component
-    </div>
-);
-
-const HelpPage = () => (
-    <div>
-        This is from my help component
-    </div>
-);
-
-const routes = (
-    <BrowserRouter>
-        <div>
-            <Route path="/" component={ExpenseDashboardPage} exact={true} />
-            <Route path="/create" component={AddExpensePage} />
-            <Route path="/edit" component={EditExpensePage} />
-            <Route path="/help" component={HelpPage} />
-        </div>
-    </BrowserRouter>
-);
-
-ReactDOM.render(routes,document.getElementById('app'));
+ReactDOM.render(jsx,document.getElementById('app'));
