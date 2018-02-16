@@ -14,7 +14,7 @@ import './styles/styles.scss';
     {
         description:'water bill',
         note: 'first expensive',
-        amount: 250,
+        amount: 666,
         createdAt: 25
     }));
 
@@ -22,11 +22,11 @@ import './styles/styles.scss';
     {
         description:'gas bill',
         note:'second expense',
-        amount: 666,
+        amount: 250,
         createdAt: 30
     }));
 
-configureStore.dispatch(setTextFilter('GAS'));
+//configureStore.dispatch(setTextFilter('waTER'));
 
 // console.log(getVisibleExpenses(configureStore.getState().expenses, configureStore.getState().filters));
 
