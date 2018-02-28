@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test-server": "live-server public/",
-    "build-bundle": "webpack",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
     "webpack-server": "webpack-dev-server"
   },
   "dependencies": {
@@ -18,6 +19,7 @@
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "css-loader": "0.28.9",
+    "extract-text-webpack-plugin": "3.0.0",
     "moment": "2.18.1",
     "node-sass": "^4.7.2",
     "normalize.css": "7.0.0",
