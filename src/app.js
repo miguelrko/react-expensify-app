@@ -37,34 +37,4 @@ const jsx = (
     </Provider>
 );
 
-// class Album extends React.Component {
-
-//     constructor(){
-//         super();
-//         this.state = {
-//             albums: []
-//         }
-//     }
-
-//     componentDidMount() {
-//         axios.get('https://jsonplaceholder.typicode.com/photos')
-//         .then(res => {
-//             let photo = res.data.sort((a, b) => {
-//                 return b.albumId - a.albumId
-//             }).
-
-//             this.setState({albums: photo});
-
-//             console.log(photo);
-//         }).catch(err => {
-//             console.log(err)
-//         });
-//     }
-
-//     render(){
-//         return <h1>Prueba</h1>
-//     }
-
-// }
-
 ReactDOM.render(jsx,document.getElementById('app'));
