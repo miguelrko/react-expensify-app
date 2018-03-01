@@ -8,7 +8,9 @@
     "test-server": "live-server public/",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
-    "webpack-server": "webpack-dev-server"
+    "webpack-server": "webpack-dev-server",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "dependencies": {
     "axios": "^0.17.1",
